@@ -1,5 +1,7 @@
 package com.lovemesomecoding.user;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,8 +19,7 @@ public class UserController {
     private UserRepository userRepository;
 
     @GetMapping
-    Flux<User> getUsers() {
-
-        return null;
+    Flux<List<User>> getUsers() {
+        return Flux.just(userRepository.findAll());
     }
 }
